@@ -1,0 +1,30 @@
+html {
+    height: 100%;
+}
+  
+body {
+    height: 100%;
+    font-family: Ubuntu;
+    margin: 0;
+    background: linear-gradient(#b3ffab, #67fffc);
+}
+
+.sideBarItem {
+    display: block;
+    padding: 20%;
+}
+
+#page {
+    display: flex;
+    height: 100vh;
+}
+
+#sideBar {
+    width: 30vh;
+    background-color: white;
+}
+
+#dashboard {
+    background-color: #f8f9fc;
+    flex: 1 0 auto;
+}

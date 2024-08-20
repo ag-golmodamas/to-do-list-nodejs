@@ -25,8 +25,18 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");  
+    res.render("index.ejs", {
+        work: tasks["work"],
+        day: tasks["day"]
+    });
 });
+
+app.get("/index.ejs", (req, res) => {
+    res.render("index.ejs", {
+        work: tasks["work"],
+        day: tasks["day"]
+    });
+})
 
 app.post("/submit", (req, res) => {
     var taskName = req.body.taskName;
