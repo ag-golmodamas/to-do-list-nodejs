@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="/styles/main.css">
     <title>Document</title>
 </head>
+<%
+    function progressCalc(list){
+    var completedCount = 0;
+    for(var i = 0; i < list.length; i++){
+        if(list[i].completed){
+            completedCount++;
+        }
+    }
+    var percent = (completedCount / list.length);
+    return percent; 
+}
+%>
 <body>
     <div id="page">
         <%- include("partials/sideBar.ejs") %>
@@ -50,11 +62,16 @@
             <div id="progressRing">
                 <svg width="250" height="250" viewBox="0 0 250 250">
                     <circle class="bg"
-                      cx="125" cy="125" r="115" fill="none" stroke="#ddd" stroke-width="20"
+                        cx="125" cy="125" r="115" fill="none" stroke="#ddd" stroke-width="20"
                     ></circle>
                     <circle class="fg"
-                      cx="125" cy="125" r="115" fill="none" stroke="#5394fd" stroke-width="20"
-                      stroke-dasharray="361.25 361.25"
+                        cx="125" cy="125" r="115" fill="none" stroke="#5394fd" stroke-width="20"
+                        <% if (locals.work && work.length != 0) { %> 
+                            stroke-dasharray="<%-progressCalc(work) * 2 * Math.PI * 115%> 
+                            <%-722.5 - progressCalc(work) * 2 * Math.PI * 115%>"        
+                        <%} else { console.log("I'm in else");%>
+                            stroke-dasharray = "0 722.5"
+                        <% } %>
                     ></circle>
 
                     <circle class="bg"
@@ -62,7 +79,12 @@
                     ></circle>
                     <circle class="fg"
                     cx="125" cy="125" r="95" fill="none" stroke="#8be78b" stroke-width="20"
-                    stroke-dasharray="361.25 361.25"
+                    <% if (locals.day && day.length != 0) { %> 
+                        stroke-dasharray="<%-progressCalc(day) * 2 * Math.PI * 95%> 
+                        <%-596.9 - progressCalc(day) * 2 * Math.PI * 95%>"        
+                    <%} else { %>
+                        stroke-dasharray = "0 596.9"
+                    <% } %>
                     ></circle>
                 </svg>
             </div>
