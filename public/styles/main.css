@@ -14,6 +14,11 @@ body {
     padding: 20%;
 }
 
+.list {
+    margin: 30px;
+    background-color: white;
+}
+
 #page {
     display: flex;
     height: 100vh;
@@ -25,6 +30,15 @@ body {
 }
 
 #dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     background-color: #f8f9fc;
-    flex: 1 0 auto;
 }
+
+#schedule {
+    grid-column: span 3;
+    margin: 30px;
+    background-color: white;
+}
+

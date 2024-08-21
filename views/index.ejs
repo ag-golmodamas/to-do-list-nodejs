@@ -11,63 +11,77 @@
         <%- include("partials/sideBar.ejs") %>
         
         <div id="dashboard">
-            <form action="/submit" method="POST">
-                <input type="hidden" name="submitGroup" value="work">
-                <input type="text" name="taskName" placeholder="Add Work Task">
-                <input type="date" name="taskDay">
-                <input type="time" name="taskTime">
-                <input type="submit" value="+">
-            </form>
             
-            <ul class="list">
-                <% if (locals.work && work.length != 0) { %>
-                    <form action="/checkActivity" method="POST">
-                        <input type="hidden" name="submitGroup" value="work">
-                        <% for (var i = 0; i < work.length; i++) { %>
-                            <div>
-                                <input type="checkbox" name="<%=work[i].activity%>"
-                                <% if (work[i].completed) { %> 
-                                    checked
-                                <% } %> >
-                                <label for="<%=work[i].activity%>"><%=work[i].activity%></label>
-                            </div>    
-                        <% } %>
-                        <input type="submit" value="Submit Activities">
-                    </form>
+            <div id="schedule">
+                <h2>Today's Schedule</h2>
+            </div>
 
-                <%} else { %>
-                    <div class="nothingBox">Currently Nothing</div>
-                <% } %>
-            </ul>
+            <div id="workList" class="list">
+                <form action="/submit" method="POST">
+                    <input type="hidden" name="submitGroup" value="work">
+                    <input type="text" name="taskName" placeholder="Add Work Task">
+                    <input type="date" name="taskDay">
+                    <input type="time" name="taskTime">
+                    <input type="submit" value="+">
+                </form>
+                
+                <ul class="list">
+                    <% if (locals.work && work.length != 0) { %>
+                        <form action="/checkActivity" method="POST">
+                            <input type="hidden" name="submitGroup" value="work">
+                            <% for (var i = 0; i < work.length; i++) { %>
+                                <div>
+                                    <input type="checkbox" name="<%=work[i].activity%>"
+                                    <% if (work[i].completed) { %> 
+                                        checked
+                                    <% } %> >
+                                    <label for="<%=work[i].activity%>"><%=work[i].activity%></label>
+                                </div>    
+                            <% } %>
+                            <input type="submit" value="Submit Activities">
+                        </form>
 
+                    <%} else { %>
+                        <div class="nothingBox">Currently Nothing</div>
+                    <% } %>
+                </ul>
+            </div>
             
-            <form action="/submit" method="POST">
-                <input type="hidden" name="submitGroup" value="day">
-                <input type="text" name="taskName" placeholder="Add Work Task">
-                <input type="date" name="taskDay">
-                <input type="time" name="taskTime">
-                <input type="submit" value="+">
-            </form>
+            <div id="progressRing">
+                Progress Ring
+            </div>
 
-            <ul class="list">
-                <% if (locals.day && day.length != 0) { %>
-                    <form action="/checkActivity" method="POST">
-                        <input type="hidden" name="submitGroup" value="day">
-                        <% for (var i = 0; i < day.length; i++) { %>
-                            <div>
-                                <input type="checkbox" name="<%=day[i].activity%>" 
-                                <% if (day[i].completed) { %> 
-                                    checked
-                                <% } %> >
-                                <label for="<%=day[i].activity%>"><%=day[i].activity%></label>
-                            </div>
-                        <% } %>
-                        <input type="submit" value="Submit Activities">
-                    </form>
-                <%} else { %>
-                    <div class="nothingBox">Currently Nothing</div>
-                <% } %>
-            </ul>
+            <div id="dayList" class="list">
+                <form action="/submit" method="POST">
+                    <input type="hidden" name="submitGroup" value="day">
+                    <input type="text" name="taskName" placeholder="Add Work Task">
+                    <input type="date" name="taskDay">
+                    <input type="time" name="taskTime">
+                    <input type="submit" value="+">
+                </form>
+
+                <ul class="list">
+                    <% if (locals.day && day.length != 0) { %>
+                        <form action="/checkActivity" method="POST">
+                            <input type="hidden" name="submitGroup" value="day">
+                            <% for (var i = 0; i < day.length; i++) { %>
+                                <div>
+                                    <input type="checkbox" name="<%=day[i].activity%>" 
+                                    <% if (day[i].completed) { %> 
+                                        checked
+                                    <% } %> >
+                                    <label for="<%=day[i].activity%>"><%=day[i].activity%></label>
+                                </div>
+                            <% } %>
+                            <input type="submit" value="Submit Activities">
+                        </form>
+                    <%} else { %>
+                        <div class="nothingBox">Currently Nothing</div>
+                    <% } %>
+                </ul>
+            </div>
+
+
         </div>
     </div>
 
