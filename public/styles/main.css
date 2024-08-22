@@ -22,10 +22,46 @@ circle.fg {
 .list {
     margin: 30px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBtn {
+    display: inline;
+    padding: 10px;
+    width: 15%;
+    background: #eaeaea;
+    border-style: none;
+    border-radius: 7px;
+    color: #9f9f9f;
+    float: right;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+.addTask {
+    display: inline;
+    margin: 0;
+    border: none;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #dddddd;
+    width: 70%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
 }
 
 #page {
     display: flex;
+    justify-content: flex-start;
     height: 100vh;
 }
 
@@ -36,12 +72,23 @@ circle.fg {
 
 #dashboard {
     display: grid;
+    flex-grow: 1;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     background-color: #f8f9fc;
 }
 
+#dashboard h2 {
+    font-family: "Sarabun", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
 #schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column: span 3;
     margin: 30px;
     background-color: white;
@@ -51,4 +98,5 @@ circle.fg {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 30px;
 }
