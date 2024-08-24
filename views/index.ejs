@@ -46,13 +46,15 @@
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="work">
                             <% for (var i = 0; i < work.length; i++) { %>
-                                <div>
-                                    <input type="checkbox" name="<%=work[i].activity%>"
-                                    <% if (work[i].completed) { %> 
-                                        checked
-                                    <% } %> >
-                                    <label for="<%=work[i].activity%>"><%=work[i].activity%></label>
-                                </div>    
+                                <div class="checkbox-wrapper work-checkbox">
+                                    <label>
+                                        <input type="checkbox" name="<%=work[i].activity%>" 
+                                        <% if (work[i].completed) { %> 
+                                            checked
+                                        <% } %> >
+                                        <span class="checkbox-item"><%=work[i].activity%></span>
+                                    </label>
+                                </div>   
                             <% } %>
                             <input type="submit" value="Submit Activities">
                         </form>
@@ -97,21 +99,23 @@
                 <h2>Day Tasks</h2>
                 <form action="/submit" method="POST">
                     <input type="hidden" name="submitGroup" value="day">
-                    <input type="text" class="addTask" name="taskName" placeholder="Add Work Task">
+                    <input type="text" class="addTask" name="taskName" placeholder="Add Day Task">
                     <input type="submit" class="addBtn" value="+">
                 </form>
 
-                <ul class="list">
+                <ul class="list checkbox-list">
                     <% if (locals.day && day.length != 0) { %>
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="day">
                             <% for (var i = 0; i < day.length; i++) { %>
-                                <div>
-                                    <input type="checkbox" name="<%=day[i].activity%>" 
-                                    <% if (day[i].completed) { %> 
-                                        checked
-                                    <% } %> >
-                                    <label for="<%=day[i].activity%>"><%=day[i].activity%></label>
+                                <div class="checkbox-wrapper day-checkbox">
+                                    <label>
+                                        <input type="checkbox" name="<%=day[i].activity%>" 
+                                        <% if (day[i].completed) { %> 
+                                            checked
+                                        <% } %> >
+                                        <span class="checkbox-item"><%=day[i].activity%></span>
+                                    </label>
                                 </div>
                             <% } %>
                             <input type="submit" value="Submit Activities">
