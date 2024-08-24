@@ -80,6 +80,7 @@ circle.fg {
 }
 
 .checkbox-wrapper input[type=checkbox] {
+    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     vertical-align: middle;
@@ -134,6 +135,18 @@ circle.fg {
 
 .checkbox-wrapper .checkbox-item {
     font-family: "Sarabun", sans-serif;
+}
+
+.checkbox-wrapper.day-checkbox input[type=checkbox]:checked + span {
+    color: #75c075; 
+    font-style: normal;
+    text-decoration: line-through;
+}
+
+.checkbox-wrapper.work-checkbox input[type=checkbox]:checked + span {
+    color: #5d99fa;
+    font-style: normal;
+    text-decoration: line-through;
 }
 
 #page {
