@@ -27,11 +27,11 @@
         
         <div id="dashboard">
             
-            <div id="schedule">
+            <div id="schedule" class="dashboard-box">
                 <h2>Today's Schedule</h2>
             </div>
 
-            <div id="workList" class="list">
+            <div id="workList" class="list dashboard-box">
                 <h2>Work Tasks</h2>
                 <form action="/submit" method="POST">
                     <input type="hidden" name="submitGroup" value="work">
@@ -56,7 +56,7 @@
                                     </label>
                                 </div>   
                             <% } %>
-                            <input type="submit" value="Submit Activities">
+                            <input type="submit" class="submit-btn" value="Submit Activities">
                         </form>
 
                     <%} else { %>
@@ -95,7 +95,7 @@
                 </svg>
             </div>
 
-            <div id="dayList" class="list">
+            <div id="dayList" class="list dashboard-box">
                 <h2>Day Tasks</h2>
                 <form action="/submit" method="POST">
                     <input type="hidden" name="submitGroup" value="day">
@@ -118,7 +118,7 @@
                                     </label>
                                 </div>
                             <% } %>
-                            <input type="submit" value="Submit Activities">
+                            <input type="submit" class="submit-btn" value="Submit Activities">
                         </form>
                     <%} else { %>
                         <div class="nothingBox">Currently Nothing</div>

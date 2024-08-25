@@ -4,7 +4,7 @@ html {
   
 body {
     height: 100%;
-    font-family: Ubuntu;
+    font-family: "Sarabun", sans-serif;
     margin: 0;
     background: linear-gradient(#b3ffab, #67fffc);
 }
@@ -15,8 +15,21 @@ circle.fg {
 }
 
 .sideBarItem {
-    display: block;
-    padding: 20%;
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #3c2861;
+    text-decoration: none;
+}
+
+.sideBarItem:visited {
+    color: #3c2861;
+}
+
+.dashboard-box {
+    border-radius: 7%;
 }
 
 .list {
@@ -149,6 +162,25 @@ circle.fg {
     text-decoration: line-through;
 }
 
+.submit-btn {
+    display: inline;
+    margin-top: 25px;
+    padding: 10px;
+    background: #eaeaea;
+    border-style: none;
+    border-radius: 7px;
+    color: #777a7d;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #bbb;
+    color: whitesmoke;
+}
+
 #page {
     display: flex;
     justify-content: flex-start;
@@ -158,6 +190,10 @@ circle.fg {
 #sideBar {
     width: 30vh;
     background-color: white;
+}
+
+#sideBar #logo {
+    height: 15vh;
 }
 
 #dashboard {
@@ -181,6 +217,8 @@ circle.fg {
     align-items: center;
     grid-column: span 3;
     margin: 30px;
+    border-radius: 50px;
+    border-collapse: separate; 
     background-color: white;
 }
 
