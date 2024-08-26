@@ -46,8 +46,9 @@ app.post("/submit", (req, res) => {
 
     var task = new Task(taskDay, taskTime, taskName, submitGroup);
     
-    tasks[submitGroup].push(task);
-
+    if(task.activity != ""){
+        tasks[submitGroup].push(task);
+    }
     res.render("index.ejs", {
         work: tasks["work"],
         day: tasks["day"]
@@ -55,7 +56,6 @@ app.post("/submit", (req, res) => {
 });
 
 app.post("/checkActivity", (req, res) => {
-    console.log("POST is working")
     var group = req.body.submitGroup;
 
     for(var i = 0; i < tasks[group].length; i++){
