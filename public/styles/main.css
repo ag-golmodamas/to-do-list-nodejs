@@ -205,8 +205,6 @@ circle.fg {
     height: 4vh;
 }
 
-
-
 #dashboard {
     display: grid;
     flex-grow: 2;
@@ -231,6 +229,21 @@ circle.fg {
     border-radius: 50px;
     background-color: white;
     height: 35vh;
+}
+
+#schedule hr {
+    width: 90%;
+    border-width:0;
+    border-top: 5px dotted #8cc0ee;
+    color:gray;
+}
+
+#schedule-time {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 27vw;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 #progressRing {
@@ -278,6 +291,9 @@ circle.fg {
         grid-column: span 2;
     }
 
+    #schedule-time {
+        gap: 20vw;
+    }
     #progressRing {
         grid-row: span 2;
     }
