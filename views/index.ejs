@@ -44,16 +44,26 @@
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="work">
                             <% for (var i = 0; i < work.length; i++) { %>
-                                <div class="checkbox-wrapper work-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="<%=work[i].activity%>" 
-                                        <% if (work[i].completed) { %> 
-                                            checked
-                                        <% } %> >
-                                        <span class="checkbox-item"><%=work[i].activity%></span>
-                                    </label>
-                                </div>   
+                                <% if (!work[i].completed) { %> 
+                                    <div class="checkbox-wrapper work-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="<%=work[i].activity%>">
+                                            <span class="checkbox-item"><%=work[i].activity%></span>
+                                        </label>
+                                    </div>   
+                                <% } %>
                             <% } %>
+                            <% for (var i = work.length - 1; i >= 0; i--) { %>
+                                <% if (work[i].completed) { %> 
+                                    <div class="checkbox-wrapper work-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="<%=work[i].activity%>" checked>
+                                            <span class="checkbox-item"><%=work[i].activity%></span>
+                                        </label>
+                                    </div>
+                                <% } %>   
+                            <% } %>
+
                             <input type="submit" class="submit-btn" value="Submit Activities">
                         </form>
 
@@ -107,15 +117,24 @@
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="day">
                             <% for (var i = 0; i < day.length; i++) { %>
-                                <div class="checkbox-wrapper day-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="<%=day[i].activity%>" 
-                                        <% if (day[i].completed) { %> 
-                                            checked
-                                        <% } %> >
-                                        <span class="checkbox-item"><%=day[i].activity%></span>
-                                    </label>
-                                </div>
+                                <% if (!day[i].completed) { %> 
+                                    <div class="checkbox-wrapper day-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="<%=day[i].activity%>">
+                                            <span class="checkbox-item"><%=day[i].activity%></span>
+                                        </label>
+                                    </div>   
+                                <% } %>
+                            <% } %>
+                            <% for (var i = day.length - 1; i >= 0; i--) { %>
+                                <% if (day[i].completed) { %> 
+                                    <div class="checkbox-wrapper day-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="<%=day[i].activity%>" checked>
+                                            <span class="checkbox-item"><%=day[i].activity%></span>
+                                        </label>
+                                    </div>
+                                <% } %>   
                             <% } %>
                             <input type="submit" class="submit-btn" value="Submit Activities">
                         </form>
