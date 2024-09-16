@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <%
@@ -28,7 +28,7 @@
         <div id="dashboard">
             
             <div id="schedule" class="dashboard-box">
-                <h2>Today's Schedule</h2>
+                <h2>Today's schedule</h2>
             </div>
 
             <div id="workList" class="list dashboard-box">
@@ -37,8 +37,6 @@
                     <input type="hidden" name="submitGroup" value="work">
                     <input type="text" class="addTask" name="taskName" placeholder="Add Work Task">
                     <input type="submit" class="addBtn" value="+">
-                    
-                    
                 </form>
                 
                 <ul class="list">
@@ -74,11 +72,12 @@
                         cx="125" cy="125" r="115" fill="none" stroke="#5394fd" stroke-width="20"
                         <% if (locals.work && work.length != 0) { %> 
                             stroke-dasharray="<%-progressCalc(work) * 2 * Math.PI * 115%> 
-                            <%-722.5 - progressCalc(work) * 2 * Math.PI * 115%>"        
-                        <%} else { console.log("I'm in else");%>
+                            <%-2 * Math.PI * 115 - progressCalc(work) * 2 * Math.PI * 115%>"        
+                        <%} else { %>
                             stroke-dasharray = "0 722.5"
                         <% } %>
                     ></circle>
+                    <circle class="butt-stroke"></circle>
 
                     <circle class="bg"
                     cx="125" cy="125" r="95" fill="none" stroke="#ddd" stroke-width="20"
@@ -87,7 +86,7 @@
                     cx="125" cy="125" r="95" fill="none" stroke="#8be78b" stroke-width="20"
                     <% if (locals.day && day.length != 0) { %> 
                         stroke-dasharray="<%-progressCalc(day) * 2 * Math.PI * 95%> 
-                        <%-596.9 - progressCalc(day) * 2 * Math.PI * 95%>"        
+                        <%-2 * Math.PI * 95 - progressCalc(day) * 2 * Math.PI * 95%>"        
                     <%} else { %>
                         stroke-dasharray = "0 596.9"
                     <% } %>
@@ -129,6 +128,6 @@
 
         </div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>

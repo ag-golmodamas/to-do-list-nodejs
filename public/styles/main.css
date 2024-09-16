@@ -6,8 +6,9 @@ body {
     height: 100%;
     font-family: "Sarabun", sans-serif;
     margin: 0;
-    background: linear-gradient(#b3ffab, #67fffc);
+    background: white;
 }
+/*linear-gradient(#b3ffab, #67fffc)*/
 
 circle.fg {
     transform: rotate(90deg);
@@ -183,24 +184,33 @@ circle.fg {
 
 #page {
     display: flex;
+    flex-grow: 1;
     justify-content: flex-start;
     height: 100vh;
 }
 
 #sideBar {
     width: 30vh;
+    height: 100vh;
     background-color: white;
 }
 
-#sideBar #logo {
-    height: 15vh;
+#sideBar #theme-title {
+    font-size: medium;
+    padding-bottom: 0;
+    height: 1vh;
 }
+
+#sideBar #theme-selector {
+    height: 4vh;
+}
+
+
 
 #dashboard {
     display: grid;
-    flex-grow: 1;
+    flex-grow: 2;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     background-color: #f8f9fc;
 }
 
@@ -213,13 +223,14 @@ circle.fg {
 
 #schedule {
     display: flex;
+    grid-column: span 2;
     flex-direction: column;
     align-items: center;
     grid-column: span 3;
     margin: 30px;
     border-radius: 50px;
-    border-collapse: separate; 
     background-color: white;
+    height: 35vh;
 }
 
 #progressRing {
@@ -228,3 +239,105 @@ circle.fg {
     align-items: center;
     margin: 30px;
 }
+
+
+@media (max-width: 1200px) {
+    body {
+        font-size: 0.8rem;
+    }
+
+    .sideBarItem {
+        font-size: 1.2rem;
+    }
+
+    .addTask {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 0.8rem;
+    }
+
+    #dashboard h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1075px) {
+    body {
+        font-size: 0.8rem;
+    }
+
+    #dashboard {
+        display: grid;
+        flex-grow: 1;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #schedule {
+        grid-column: span 2;
+    }
+
+    #progressRing {
+        grid-row: span 2;
+    }
+
+    #sideBar {
+        position: relative;
+    }
+
+    #page {
+        height:fit-content;
+    }
+}
+
+@media (max-width: 850px) {
+    body {
+        font-size: 0.75rem;
+    }
+
+    .sideBarItem {
+        font-size: 1rem;
+    }
+
+    .addTask {
+        font-size: 13   px;
+    }
+
+    .submit-btn {
+        font-size: 0.7rem;
+    }
+
+    #sideBar {
+        width: 20vh;
+    }
+
+    #dashboard h2 {
+        font-size: 1rem;
+    }
+    #dashboard {
+        display: grid;
+        flex-grow: 1;
+        grid-template-columns: 1fr;
+    }
+
+    #schedule {
+        grid-column: span 2;
+    }
+
+    #progressRing {
+        grid-row: span 2;
+    }
+
+    #sideBar {
+        position: relative;
+    }
+
+    #page {
+        height: fit-content;
+    }
+}
+
+
+
+
