@@ -29,12 +29,20 @@
             
             <div id="schedule" class="dashboard-box">
                 <h2>Today's schedule</h2>
+                <div class="add-today">
+                    <form action="/submit-todo" method="POST">
+                        <input type="hidden" name="submitGroup" value="work">
+                        <input type="text" class="addTask" name="taskName" placeholder="To Do Task">
+                        <input type="submit" class="addBtn" value="+">
+                    </form>
+                </div>
                 <div id="schedule-time">
                     <div>6:00 PM</div> 
                     <div>9:00 PM</div> 
                     <div>12:00 PM</div>
                 </div>
                 <hr>
+
             </div>
 
             <div id="workList" class="list dashboard-box">

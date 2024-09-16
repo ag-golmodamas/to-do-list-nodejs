@@ -41,6 +41,7 @@ circle.fg {
     align-items: center;
 }
 
+
 .addBtn {
     display: inline;
     padding: 10px;
@@ -62,6 +63,7 @@ circle.fg {
 
 .addTask {
     display: inline;
+    justify-content: center;
     margin: 0;
     border: none;
     border-style: solid;
@@ -71,6 +73,10 @@ circle.fg {
     padding: 10px;
     float: left;
     font-size: 16px;
+}
+
+.add-today {
+    margin: 1%;
 }
 
 .checkbox-list {
@@ -228,13 +234,14 @@ circle.fg {
     margin: 30px;
     border-radius: 50px;
     background-color: white;
-    height: 35vh;
+    height: 40vh;
 }
 
 #schedule hr {
     width: 90%;
     border-width:0;
     border-top: 5px dotted #8cc0ee;
+    margin-bottom: 30px;
     color:gray;
 }
 
