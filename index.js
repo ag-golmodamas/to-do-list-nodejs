@@ -12,8 +12,7 @@ var tasks = {
     "day" : []
 };
 
-function Task(day, time, activity, group){
-    this.day = day;
+function Task(time, activity, group){
     this.time = time;
     this.activity = activity;
     this.group = group;
@@ -40,20 +39,21 @@ app.get("/index.ejs", (req, res) => {
 
 app.post("/submit", (req, res) => {
     var taskName = req.body.taskName;
-    var taskDay = req.body.taskDay;
     var taskTime = req.body.taskTime;
     var submitGroup = req.body.submitGroup; 
 
-    var task = new Task(taskDay, taskTime, taskName, submitGroup);
+    var task = new Task(taskTime, taskName, submitGroup);
     
     if(task.activity != ""){
         tasks[submitGroup].push(task);
     }
+    console.log(tasks[submitGroup][0]);
     res.render("index.ejs", {
         work: tasks["work"],
         day: tasks["day"]
     });
 });
+
 
 app.post("/checkActivity", (req, res) => {
     var group = req.body.submitGroup;
