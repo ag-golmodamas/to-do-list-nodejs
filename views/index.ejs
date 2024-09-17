@@ -31,8 +31,9 @@
                 <h2>Today's schedule</h2>
                 <div class="add-today">
                     <form action="/submit-todo" method="POST">
-                        <input type="hidden" name="submitGroup" value="work">
-                        <input type="text" class="addTask" name="taskName" placeholder="To Do Task">
+                        <input type="hidden" name="submitGroup" value="today">
+                        <input type="text" class="addTask add-today-task" name="taskName" placeholder="To Do Task">
+                        <input type="time" class="addTask add-today-task add-time" name="taskTime">
                         <input type="submit" class="addBtn" value="+">
                     </form>
                 </div>
