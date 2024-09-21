@@ -25,8 +25,7 @@ app.listen(port, () => {
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {
-        work: tasks["work"],
-        day: tasks["day"]
+        tasks: tasks
     });
 });
 
@@ -40,7 +39,6 @@ app.post("/submit", (req, res) => {
     if(task.activity != ""){
         tasks[submitGroup].push(task);
     }
-    console.log(tasks[submitGroup][0]);
     res.redirect("/");
 });
 

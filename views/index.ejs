@@ -11,15 +11,16 @@
 </head>
 <%
     function progressCalc(list){
-    var completedCount = 0;
-    for(var i = 0; i < list.length; i++){
-        if(list[i].completed){
-            completedCount++;
+        var completedCount = 0;
+        for(var i = 0; i < list.length; i++){
+            if(list[i].completed){
+                completedCount++;
+            }
         }
+        var percent = (completedCount / list.length);
+        return percent; 
     }
-    var percent = (completedCount / list.length);
-    return percent; 
-}
+
 %>
 <body>
     <div id="page">
@@ -44,7 +45,7 @@
                 <div id="schedule-time">
                     <div>6:00 PM</div> 
                     <div>9:00 PM</div> 
-                    <div>12:00 PM</div>
+                    <div>12:00 AM</div>
                 </div>
                 <hr>
 
@@ -59,25 +60,25 @@
                 </form>
                 
                 <ul class="list">
-                    <% if (locals.work && work.length != 0) { %>
+                    <% if (locals.tasks["work"] && tasks["work"].length != 0) { %>
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="work">
-                            <% for (var i = 0; i < work.length; i++) { %>
-                                <% if (!work[i].completed) { %> 
+                            <% for (var i = 0; i < tasks["work"].length; i++) { %>
+                                <% if (!tasks["work"][i].completed) { %> 
                                     <div class="checkbox-wrapper work-checkbox">
                                         <label>
-                                            <input type="checkbox" name="<%=work[i].activity%>">
-                                            <span class="checkbox-item"><%=work[i].activity%></span>
+                                            <input type="checkbox" name="<%=tasks["work"][i].activity%>">
+                                            <span class="checkbox-item"><%=tasks["work"][i].activity%></span>
                                         </label>
                                     </div>   
                                 <% } %>
                             <% } %>
-                            <% for (var i = work.length - 1; i >= 0; i--) { %>
-                                <% if (work[i].completed) { %> 
+                            <% for (var i = tasks["work"].length - 1; i >= 0; i--) { %>
+                                <% if (tasks["work"][i].completed) { %> 
                                     <div class="checkbox-wrapper work-checkbox">
                                         <label>
-                                            <input type="checkbox" name="<%=work[i].activity%>" checked>
-                                            <span class="checkbox-item"><%=work[i].activity%></span>
+                                            <input type="checkbox" name="<%=tasks["work"][i].activity%>" checked>
+                                            <span class="checkbox-item"><%=tasks["work"][i].activity%></span>
                                         </label>
                                     </div>
                                 <% } %>   
@@ -99,9 +100,9 @@
                     ></circle>
                     <circle class="fg"
                         cx="125" cy="125" r="115" fill="none" stroke="#5394fd" stroke-width="20"
-                        <% if (locals.work && work.length != 0) { %> 
-                            stroke-dasharray="<%-progressCalc(work) * 2 * Math.PI * 115%> 
-                            <%-2 * Math.PI * 115 - progressCalc(work) * 2 * Math.PI * 115%>"        
+                        <% if (tasks["work"] && tasks["work"].length != 0) { %> 
+                            stroke-dasharray="<%-progressCalc(tasks["work"]) * 2 * Math.PI * 115%> 
+                            <%-2 * Math.PI * 115 - progressCalc(tasks["work"]) * 2 * Math.PI * 115%>"        
                         <%} else { %>
                             stroke-dasharray = "0 722.5"
                         <% } %>
@@ -113,9 +114,9 @@
                     ></circle>
                     <circle class="fg"
                     cx="125" cy="125" r="95" fill="none" stroke="#8be78b" stroke-width="20"
-                    <% if (locals.day && day.length != 0) { %> 
-                        stroke-dasharray="<%-progressCalc(day) * 2 * Math.PI * 95%> 
-                        <%-2 * Math.PI * 95 - progressCalc(day) * 2 * Math.PI * 95%>"        
+                    <% if (locals.tasks["day"] && tasks["day"].length != 0) { %> 
+                        stroke-dasharray="<%-progressCalc(tasks["day"]) * 2 * Math.PI * 95%> 
+                        <%-2 * Math.PI * 95 - progressCalc(tasks["day"]) * 2 * Math.PI * 95%>"        
                     <%} else { %>
                         stroke-dasharray = "0 596.9"
                     <% } %>
@@ -132,25 +133,25 @@
                 </form>
 
                 <ul class="list checkbox-list">
-                    <% if (locals.day && day.length != 0) { %>
+                    <% if (locals.tasks["day"] && tasks["day"].length != 0) { %>
                         <form action="/checkActivity" method="POST">
                             <input type="hidden" name="submitGroup" value="day">
-                            <% for (var i = 0; i < day.length; i++) { %>
-                                <% if (!day[i].completed) { %> 
+                            <% for (var i = 0; i < tasks["day"].length; i++) { %>
+                                <% if (!tasks["day"][i].completed) { %> 
                                     <div class="checkbox-wrapper day-checkbox">
                                         <label>
-                                            <input type="checkbox" name="<%=day[i].activity%>">
-                                            <span class="checkbox-item"><%=day[i].activity%></span>
+                                            <input type="checkbox" name="<%=tasks["day"][i].activity%>">
+                                            <span class="checkbox-item"><%=tasks["day"][i].activity%></span>
                                         </label>
                                     </div>   
                                 <% } %>
                             <% } %>
-                            <% for (var i = day.length - 1; i >= 0; i--) { %>
-                                <% if (day[i].completed) { %> 
+                            <% for (var i = tasks["day"].length - 1; i >= 0; i--) { %>
+                                <% if (tasks["day"][i].completed) { %> 
                                     <div class="checkbox-wrapper day-checkbox">
                                         <label>
-                                            <input type="checkbox" name="<%=day[i].activity%>" checked>
-                                            <span class="checkbox-item"><%=day[i].activity%></span>
+                                            <input type="checkbox" name="<%=tasks["day"][i].activity%>" checked>
+                                            <span class="checkbox-item"><%=tasks["day"][i].activity%></span>
                                         </label>
                                     </div>
                                 <% } %>   
