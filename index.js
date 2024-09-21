@@ -30,13 +30,6 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/index.ejs", (req, res) => {
-    res.render("index.ejs", {
-        work: tasks["work"],
-        day: tasks["day"]
-    });
-})
-
 app.post("/submit", (req, res) => {
     var taskName = req.body.taskName;
     var taskTime = req.body.taskTime;
@@ -48,10 +41,7 @@ app.post("/submit", (req, res) => {
         tasks[submitGroup].push(task);
     }
     console.log(tasks[submitGroup][0]);
-    res.render("index.ejs", {
-        work: tasks["work"],
-        day: tasks["day"]
-    });
+    res.redirect("/");
 });
 
 
@@ -67,9 +57,5 @@ app.post("/checkActivity", (req, res) => {
         }
     }
 
-    res.render("index.ejs", {
-        work: tasks["work"],
-        day: tasks["day"]
-    });
-
+    res.redirect("/");
 })
