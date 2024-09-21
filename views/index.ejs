@@ -21,6 +21,38 @@
         return percent; 
     }
 
+    function sortTasks(tasks){
+        const submitGroup = ["work", "day"];
+        const tasksArray = [];
+
+        //Initializing sorted array
+        for(var i = 0; i < submitGroup.length; i++){
+            for(var j = 0; j < tasks[submitGroup].length; j++){
+                tasksArray.push(tasks[submitGroup[i]]);
+            }
+        }
+
+        //Calculating the sorted Array
+        const sortedTasks = taskSort(tasksArray);
+        return sortedTasks;
+    
+    }
+
+    function taskSort(tasks) {
+        let swapped;
+        do {
+            swapped = false;
+            for (let i = 0; i < tasks.length - 1; i++) {
+            if (tasks[i].time > tasks[i + 1].time) {
+                let temp = tasks[i];
+                tasks[i] = tasks[i + 1];
+                tasks[i + 1] = temp;
+                swapped = true;
+            }
+            }
+        } while (swapped);
+        return tasks;
+    }
 %>
 <body>
     <div id="page">
