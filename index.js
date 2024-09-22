@@ -12,8 +12,9 @@ var tasks = {
     "day" : []
 };
 
-function Task(time, activity, group){
+function Task(time, duration, activity, group){
     this.time = time;
+    this.duration = duration;
     this.activity = activity;
     this.group = group;
     this.completed = false;
@@ -32,9 +33,10 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
     var taskName = req.body.taskName;
     var taskTime = req.body.taskTime;
+    var taskDuration = req.body.taskDuration;
     var submitGroup = req.body.submitGroup; 
 
-    var task = new Task(taskTime, taskName, submitGroup);
+    var task = new Task(taskTime, taskDuration, taskName, submitGroup);
     
     if(task.activity != ""){
         tasks[submitGroup].push(task);

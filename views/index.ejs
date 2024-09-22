@@ -27,11 +27,14 @@
 
         //Initializing sorted array
         for(var i = 0; i < submitGroup.length; i++){
-            for(var j = 0; j < tasks[submitGroup].length; j++){
-                tasksArray.push(tasks[submitGroup[i]]);
+            for(var j = 0; j < tasks[submitGroup[i]].length; j++){
+                if(tasks[submitGroup[i]][j].time != null){
+                    tasksArray.push(tasks[submitGroup[i]][j]);
+                }
             }
         }
 
+        console.log("Array of tasks is "+tasksArray)
         //Calculating the sorted Array
         const sortedTasks = taskSort(tasksArray);
         return sortedTasks;
@@ -65,22 +68,42 @@
                 <div class="add-today">
                     <form action="/submit" method="POST">
                         <input type="text" class="addTask add-today-task" name="taskName" placeholder="To Do Task">
-                        <input type="time" class="addTask add-today-task add-time" name="taskTime">
+                        <input type="text" class="addTask add-time time-pickable" name="taskTime" placeholder="-- : --" readonly>
+                        <select required class="addTask add-duration" name="taskDuration">
+                            <option value="" selected disabled hidden>Duration</option>
+                            <option value="15">15 min</option>
+                            <option value="30">30 min</option>
+                            <option value="45">45 min</option>
+                            <option value="60">60 min</option>
+                        </select>
                         <select required class="addTask add-type" name="submitGroup">
                             <option value="" selected disabled hidden>Type</option>
                             <option value="work">Work</option>
                             <option value="day">Day</option>
                         </select>
-                        <input type="submit" class="addBtn" value="+">
+                        <input type="submit" class="addBtn add-btntoday" value="+">
                     </form>
                 </div>
-                <div id="schedule-time">
-                    <div>6:00 PM</div> 
-                    <div>9:00 PM</div> 
-                    <div>12:00 AM</div>
-                </div>
-                <hr>
-
+                <% if (locals.tasks){
+                    const sortedTasks = sortTasks(tasks);
+                    console.log(sortedTasks); %>
+                    <div class="schedule-plan">
+                        <div id="schedule-timeholder">
+                            <div class="schedule-time">12:00 PM</div> 
+                            <div class="schedule-time">03:00 PM</div> 
+                            <div class="schedule-time">06:00 AM</div>    
+                        </div>
+                        <div class="line"><hr></div>
+                        <div id="schedule-taskholder">    
+                            <% for(var i = 0; i < sortedTasks.length; i++){
+                                if(sortedTasks[i].time > "12:00" && sortedTasks[i].time < "18:00"){ %>
+                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                <% } 
+                                }
+                            } %>
+                        </div> 
+                    </div>
+                
             </div>
 
             <div id="workList" class="list dashboard-box">
