@@ -88,11 +88,41 @@
                     const sortedTasks = sortTasks(tasks);
                     console.log(sortedTasks); %>
                     <div class="schedule-plan">
-                        <div id="schedule-timeholder">
-                            <div class="schedule-time">12:00 PM</div> 
-                            <div class="schedule-time">03:00 PM</div> 
-                            <div class="schedule-time">06:00 AM</div>    
-                        </div>
+                        <section class="slider-wrapper">
+                            <button class="slide-arrow" id="slide-arrow-prev">&#8249;</button>
+                            <button class="slide-arrow" id="slide-arrow-next">&#8250;</button>
+                            <ul class="slides-container" id="slides-container">
+                                <li class="slide">
+                                    <div class="schedule-timeholder">
+                                        <div class="schedule-time">00:00 AM</div> 
+                                        <div class="schedule-time">03:00 AM</div> 
+                                        <div class="schedule-time">06:00 AM</div>    
+                                    </div>
+                                </li>
+                                <li class="slide">
+                                    <div class="schedule-timeholder">
+                                        <div class="schedule-time">06:00 AM</div> 
+                                        <div class="schedule-time">09:00 AM</div> 
+                                        <div class="schedule-time">12:00 PM</div>    
+                                    </div>    
+                                </li>
+                                <li class="slide">
+                                    <div class="schedule-timeholder">
+                                        <div class="schedule-time">12:00 PM</div> 
+                                        <div class="schedule-time">03:00 PM</div> 
+                                        <div class="schedule-time">06:00 PM</div>    
+                                    </div>    
+                                </li>
+                                <li class="slide">
+                                    <div class="schedule-timeholder">
+                                        <div class="schedule-time">06:00 PM</div> 
+                                        <div class="schedule-time">09:00 PM</div> 
+                                        <div class="schedule-time">00:00 AM</div>    
+                                    </div>        
+                                </li>
+                            </ul>
+                        </section>
+
                         <div class="line"><hr></div>
                         <div id="schedule-taskholder">    
                             <% for(var i = 0; i < sortedTasks.length; i++){
@@ -104,7 +134,8 @@
                         </div> 
                     </div>
                 
-            </div>
+            </div>  
+
 
             <div id="workList" class="list dashboard-box">
                 <h2>Work Tasks</h2>
