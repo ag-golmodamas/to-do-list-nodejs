@@ -96,42 +96,73 @@
                                     <div class="schedule-timeholder">
                                         <div class="schedule-time">00:00 AM</div> 
                                         <div class="schedule-time">03:00 AM</div> 
-                                        <div class="schedule-time">06:00 AM</div>    
+                                        <div class="schedule-time">06:00 AM</div>
                                     </div>
+                                    <div class="schedule-line"><hr></div>
+                                    <div id="schedule-taskholder">    
+                                            <% for(var i = 0; i < sortedTasks.length; i++){
+                                                if(sortedTasks[i].time > "00:00" && sortedTasks[i].time < "06:00"){ %>
+                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                <% } 
+                                                }
+                                             %>
+                                    </div> 
                                 </li>
                                 <li class="slide">
                                     <div class="schedule-timeholder">
                                         <div class="schedule-time">06:00 AM</div> 
                                         <div class="schedule-time">09:00 AM</div> 
                                         <div class="schedule-time">12:00 PM</div>    
-                                    </div>    
+                                    </div>
+                                    <div class="schedule-line"><hr></div>
+                                    <div id="schedule-taskholder">    
+                                            <% for(var i = 0; i < sortedTasks.length; i++){
+                                                if(sortedTasks[i].time > "06:00" && sortedTasks[i].time < "12:00"){ %>
+                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                <% } 
+                                                }
+                                             %>
+                                    </div>     
                                 </li>
                                 <li class="slide">
                                     <div class="schedule-timeholder">
                                         <div class="schedule-time">12:00 PM</div> 
                                         <div class="schedule-time">03:00 PM</div> 
-                                        <div class="schedule-time">06:00 PM</div>    
-                                    </div>    
+                                        <div class="schedule-time">06:00 PM</div>            
+                                    </div>
+                                    <div class="schedule-line"><hr></div>
+                                    <div id="schedule-taskholder">    
+                                            <% for(var i = 0; i < sortedTasks.length; i++){
+                                                if(sortedTasks[i].time > "12:00" && sortedTasks[i].time < "18:00"){ %>
+                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                <% } 
+                                                }
+                                             %>
+                                    </div>     
                                 </li>
                                 <li class="slide">
                                     <div class="schedule-timeholder">
                                         <div class="schedule-time">06:00 PM</div> 
                                         <div class="schedule-time">09:00 PM</div> 
                                         <div class="schedule-time">00:00 AM</div>    
+                                    </div>
+                                    <div class="schedule-line"><hr></div>
+                                    <div id="schedule-taskholder">    
+                                            <% for(var i = 0; i < sortedTasks.length; i++){
+                                                if(sortedTasks[i].time > "18:00" && sortedTasks[i].time < "24:00"){ %>
+                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                <% } 
+                                                }
+                                            } %>
                                     </div>        
                                 </li>
                             </ul>
                         </section>
 
-                        <div class="line"><hr></div>
-                        <div id="schedule-taskholder">    
-                            <% for(var i = 0; i < sortedTasks.length; i++){
-                                if(sortedTasks[i].time > "12:00" && sortedTasks[i].time < "18:00"){ %>
-                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
-                                <% } 
-                                }
-                            } %>
-                        </div> 
+                        
+                        
+                        
+
                     </div>
                 
             </div>  

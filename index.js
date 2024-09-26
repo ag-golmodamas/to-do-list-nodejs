@@ -33,6 +33,18 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
     var taskName = req.body.taskName;
     var taskTime = req.body.taskTime;
+    if(taskTime.includes("am")){
+        taskTime = taskTime.slice(0,5);
+        if(taskTime.slice(0, 2) == "12"){
+            taskTime = "00" + taskTime.slice(2);
+        } 
+    } else {
+        var pmhour = (taskTime.slice(0, 2)).parseInt + 12;
+        if(taskTime.slice(0, 2) == "12"){
+            pmhour = 12;
+        }  
+        taskTime = pmhour + taskTime.slice(2);
+    }
     var taskDuration = req.body.taskDuration;
     var submitGroup = req.body.submitGroup; 
 

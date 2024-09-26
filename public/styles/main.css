@@ -108,7 +108,7 @@ circle.fg {
   }
   
   .slides-container {
-    /*height: calc(100vh - 2rem);*/
+    height: 20vh;
     width: 100%;
     display: flex;
     overflow:scroll;
