@@ -101,8 +101,14 @@
                                     <div class="schedule-line"><hr></div>
                                     <div id="schedule-taskholder">    
                                             <% for(var i = 0; i < sortedTasks.length; i++){
-                                                if(sortedTasks[i].time > "00:00" && sortedTasks[i].time < "06:00"){ %>
-                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                if(sortedTasks[i].time > "00:00" && sortedTasks[i].time < "06:00"){ 
+                                                    if (sortedTasks[i].group == "work") { %>
+                                                        <div class="task-schedule schedule-work"><%=sortedTasks[i].activity%></div>
+                                                    <% } else if (sortedTasks[i].group == "day") { %>
+                                                        <div class="task-schedule schedule-day"><%=sortedTasks[i].activity%></div>
+                                                    <% } else { %>
+                                                        <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                    <% } %>
                                                 <% } 
                                                 }
                                              %>
@@ -117,8 +123,14 @@
                                     <div class="schedule-line"><hr></div>
                                     <div id="schedule-taskholder">    
                                             <% for(var i = 0; i < sortedTasks.length; i++){
-                                                if(sortedTasks[i].time > "06:00" && sortedTasks[i].time < "12:00"){ %>
-                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                if(sortedTasks[i].time > "06:00" && sortedTasks[i].time < "12:00"){
+                                                     if (sortedTasks[i].group == "work") { %>
+                                                        <div class="task-schedule schedule-work"><%=sortedTasks[i].activity%></div>
+                                                    <% } else if (sortedTasks[i].group == "day") { %>
+                                                        <div class="task-schedule schedule-day"><%=sortedTasks[i].activity%></div>
+                                                    <% } else { %>
+                                                        <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                    <% } %>
                                                 <% } 
                                                 }
                                              %>
@@ -133,8 +145,14 @@
                                     <div class="schedule-line"><hr></div>
                                     <div id="schedule-taskholder">    
                                             <% for(var i = 0; i < sortedTasks.length; i++){
-                                                if(sortedTasks[i].time > "12:00" && sortedTasks[i].time < "18:00"){ %>
-                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                if(sortedTasks[i].time > "12:00" && sortedTasks[i].time < "18:00"){
+                                                    if (sortedTasks[i].group == "work") { %>
+                                                        <div class="task-schedule schedule-work"><%=sortedTasks[i].activity%></div>
+                                                    <% } else if (sortedTasks[i].group == "day") { %>
+                                                        <div class="task-schedule schedule-day"><%=sortedTasks[i].activity%></div>
+                                                    <% } else { %>
+                                                        <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                    <% } %>
                                                 <% } 
                                                 }
                                              %>
@@ -149,8 +167,14 @@
                                     <div class="schedule-line"><hr></div>
                                     <div id="schedule-taskholder">    
                                             <% for(var i = 0; i < sortedTasks.length; i++){
-                                                if(sortedTasks[i].time > "18:00" && sortedTasks[i].time < "24:00"){ %>
-                                                    <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                if(sortedTasks[i].time > "18:00" && sortedTasks[i].time < "24:00"){ 
+                                                    if (sortedTasks[i].group == "work") { %>
+                                                        <div class="task-schedule schedule-work"><%=sortedTasks[i].activity%></div>
+                                                    <% } else if (sortedTasks[i].group == "day") { %>
+                                                        <div class="task-schedule schedule-day"><%=sortedTasks[i].activity%></div>
+                                                    <% } else { %>
+                                                        <div class="task-schedule"><%=sortedTasks[i].activity%></div>
+                                                    <% } %>
                                                 <% } 
                                                 }
                                             } %>

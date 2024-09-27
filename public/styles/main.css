@@ -328,6 +328,20 @@ circle.fg {
 
 #schedule .task-schedule {
     display: inline;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(65, 65, 65);
+}
+
+#schedule .schedule-work {
+    background-color: #48c;
+}
+
+#schedule .schedule-day {
+    background-color: rgb(68, 204, 100);
 }
 
 #schedule .schedule-plan {
