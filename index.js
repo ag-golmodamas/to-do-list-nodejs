@@ -39,7 +39,7 @@ app.post("/submit", (req, res) => {
             taskTime = "00" + taskTime.slice(2);
         } 
     } else {
-        var pmhour = (taskTime.slice(0, 2)).parseInt + 12;
+        var pmhour = Number(taskTime.slice(0, 2)) + 12;
         if(taskTime.slice(0, 2) == "12"){
             pmhour = 12;
         }  
